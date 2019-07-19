@@ -38,5 +38,9 @@
   },
   "main": "index.js",
   "author": "Hbuz <m.basilico10@gmail.com>",
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "enzyme": "^3.10.0",
+    "enzyme-adapter-react-16": "^1.14.0"
+  }
 }
