@@ -37,7 +37,7 @@ const styles = (theme) => ({
 });
 
 
-const PokemonListContainer = withStyles(styles)(
+const PokemonContainer = withStyles(styles)(
   class extends PureComponent {
 
     constructor(props) {
@@ -178,25 +178,6 @@ const PokemonListContainer = withStyles(styles)(
               <Grid container direction="column">
                 <Grid item>
                   <UserSection loggingOut={this.loggingOut} currentUser={this.props.currentUser} />
-                  {/* <Grid container justify="space-between">
-                    <Grid item className={classes.user}>
-                      <TextField
-                        label="Username"
-                        className={classes.textField}
-                        value={this.props.currentUser && this.props.currentUser.username}
-                        margin="normal"
-                        variant="outlined"
-                        InputProps={{
-                          readOnly: true,
-                        }}
-                      />
-                    </Grid>
-                    <Grid item>
-                      <Link to="/login">
-                        <Button type="button" onClick={this.loggingOut}>Log Out</Button>
-                      </Link>
-                    </Grid>
-                  </Grid> */}
                 </Grid>
 
                 <Grid item className={classes.paper}>
@@ -222,4 +203,4 @@ const mapStateToProps = function (state) {
 
 const mapDispatchToProps = { logout }
 
-export default connect(mapStateToProps, mapDispatchToProps)(PokemonListContainer)
+export default connect(mapStateToProps, mapDispatchToProps)(PokemonContainer)

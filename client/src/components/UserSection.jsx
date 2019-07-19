@@ -6,14 +6,14 @@ import Button from "@material-ui/core/Button";
 import { Link } from "react-router-dom";
 
 
-const useStyles = makeStyles((theme) => ({
-  user: {
-    marginRight: 32
-  },
+const useStyles = makeStyles( theme => ({
   textField: {
     marginLeft: theme.spacing(1),
     marginRight: theme.spacing(1),
   },
+  button: {
+    paddingTop: 32,
+  }
 }));
 
 
@@ -22,8 +22,8 @@ export default function UserSection(props) {
   const classes = useStyles(); 
   
   return (
-    <Grid container justify="space-between">
-      <Grid item className={classes.user}>
+    <Grid container>
+      <Grid item>
         <TextField
           label="Username"
           className={classes.textField}
@@ -35,7 +35,7 @@ export default function UserSection(props) {
           }}
         />
       </Grid>
-      <Grid item>
+      <Grid item className={classes.button}>
         <Link to="/login">
           <Button type="button" onClick={props.loggingOut}>Log Out</Button>
         </Link>
