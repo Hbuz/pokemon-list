@@ -2,9 +2,10 @@ import React from "react";
 import store from "./store";
 import { Route, Redirect } from "react-router-dom";
 import { Provider } from "react-redux";
-import PokemonContainer from "./components/PokemonContainer";
+import PokemonContainer from "./components/pokemon/PokemonContainer";
 import LoginFormContainer from "./components/login/LoginFormContainer";
 import SignupFormContainer from "./components/signup/SignupFormContainer";
+
 
 class App extends React.PureComponent {
   render() {
