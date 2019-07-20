@@ -14,7 +14,6 @@ const styles = () => ({
   },
   container: {
     padding: 64,
-    //flexWrap: 'wrap'
   },
 
 })

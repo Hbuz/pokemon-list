@@ -6,15 +6,11 @@ import PokemonSearchForm from './PokemonSearchForm'
 import UserSection from './UserSection'
 import { logout } from '../../actions/auth'
 import Grid from "@material-ui/core/Grid";
-import Button from "@material-ui/core/Button";
-import Typography from "@material-ui/core/Typography";
-import TextField from "@material-ui/core/TextField";
-import { Link } from "react-router-dom";
 import { withStyles } from "@material-ui/core/styles";
 import { connect } from 'react-redux'
 import jsPDF from 'jspdf';
 
-
+const baseUrl = process.env.REACT_APP_API_URL || "http://localhost:4001";
 
 const styles = (theme) => ({
   root: {
@@ -22,7 +18,6 @@ const styles = (theme) => ({
   },
   container: {
     padding: 24
-    // flexWrap: "wrap"
   },
   paper: {
     padding: 32
@@ -55,14 +50,14 @@ const PokemonContainer = withStyles(styles)(
 
     componentDidMount() {
       //Get all pokemons
-      request('http://localhost:4001/pokemons')
+      request(`${baseUrl}`)
         .then(response => {
           this.setState({ pokemons: response.body.pokemons })
         })
         .then(() => {
           //Request 
           //UNCOMMNET TODO
-          request(`http://localhost:4001/pokemons/favorites/${this.props.currentUser.userId}`)
+          request(`${baseUrl}/pokemons/favorites/${this.props.currentUser.userId}`)
             .then(response => {
               this.setState({ favorites: response.body.favorites.map(elem => (elem.pokemonId)) })
             })
@@ -76,7 +71,7 @@ const PokemonContainer = withStyles(styles)(
 
     handleSubmit(event) {
       event.preventDefault()
-      request('http://localhost:4001/pokemons')
+      request(`${baseUrl}/pokemons`)
         .query({ name: this.state.searchKey })
         .then(response => {
           this.setState({ pokemons: response.body.pokemons })
@@ -84,7 +79,7 @@ const PokemonContainer = withStyles(styles)(
     }
 
     showDetails = (pokemonName) => {
-      request(`http://localhost:4001/pokemons/${pokemonName}`)
+      request(`${baseUrl}/pokemons/${pokemonName}`)
         .then(response => {
           this.checkFavorite(response.body.pokemon, this.state.favorites)
           this.setState({ selected: response.body.pokemon })
@@ -101,7 +96,7 @@ const PokemonContainer = withStyles(styles)(
         }))
 
         request
-          .post(`http://localhost:4001/users/${this.props.currentUser.userId}`)
+          .post(`${baseUrl}/users/${this.props.currentUser.userId}`)
           .query({ name: pokemonName })
           .then(response => {
             console.log(`Pokemon ${pokemonName} added as favorite`)
@@ -111,7 +106,7 @@ const PokemonContainer = withStyles(styles)(
         this.setState({ favorites: this.state.favorites.filter(fav => fav !== this.state.selected.id )})
         
         request
-          .del(`http://localhost:4001/users/${this.props.currentUser.userId}`)
+          .del(`${baseUrl}/users/${this.props.currentUser.userId}`)
           .query({ name: pokemonName })
           .then(response => {
             console.log(`Pokemon ${pokemonName} removed from favorites`)
@@ -120,7 +115,7 @@ const PokemonContainer = withStyles(styles)(
     }
 
     checkFavorite = selected => {
-      request(`http://localhost:4001/pokemons/favorites/${this.props.currentUser.userId}`)
+      request(`${baseUrl}/pokemons/favorites/${this.props.currentUser.userId}`)
         .then(response => {
           const favorites = response.body.favorites.map(elem => (elem.pokemonId))
           if (favorites.includes(selected.id)) {

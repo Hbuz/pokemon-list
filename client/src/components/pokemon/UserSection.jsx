@@ -37,7 +37,7 @@ export default function UserSection(props) {
       </Grid>
       <Grid item className={classes.button}>
         <Link to="/login">
-          <Button type="button" onClick={props.loggingOut}>Log Out</Button>
+          <Button onClick={props.loggingOut}>Log Out</Button>
         </Link>
       </Grid>
     </Grid>

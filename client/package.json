@@ -13,6 +13,7 @@
     "react-scripts": "3.0.1",
     "redux": "^4.0.4",
     "redux-thunk": "^2.3.0",
+    "sinon": "^7.3.2",
     "superagent": "^5.1.0"
   },
   "scripts": {
@@ -41,6 +42,7 @@
   "license": "MIT",
   "devDependencies": {
     "enzyme": "^3.10.0",
-    "enzyme-adapter-react-16": "^1.14.0"
+    "enzyme-adapter-react-16": "^1.14.0",
+    "jest-canvas-mock": "^2.1.0"
   }
 }

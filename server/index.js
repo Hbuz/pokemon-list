@@ -28,7 +28,7 @@ app
   
 
 const fetchPokemons = () => {
-  fetch(`https://pokeapi.co/api/v2/pokemon?limit=60`)
+  fetch(`https://pokeapi.co/api/v2/pokemon?limit=1`)
     .then(response => response.json())
     .then(function(data) {
       data.results.forEach(pokemon => {
@@ -43,7 +43,8 @@ const fetchPokemons = () => {
               height: myJson.height,
               base_experience: myJson.base_experience,
               image: myJson.sprites.front_default
-            }).then(pokemon =>
+            })
+            .then(pokemon =>
               console.log(`Pokemon created = ${pokemon.name}`)
             );
           });
@@ -57,3 +58,6 @@ const fetchPokemons = () => {
 
 
 fetchPokemons();
+
+
+module.exports = app;
