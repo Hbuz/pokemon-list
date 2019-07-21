@@ -23,7 +23,7 @@ git clone git@github.com:Hbuz/pokemon-list.git
 ```npm install```
 
 ##### Running apllication
-node . DATABASE_URL={DATABASE_URL} PORT={PORT}
+DATABASE_URL={DATABASE_URL} PORT={PORT} node . 
 ##### Run test
 npm run test
 
@@ -37,6 +37,6 @@ npm run test
 ```npm install```
 
 ##### Run application
-yarn start REACT_APP_API_URL={REACT_APP_API_URL}
+REACT_APP_API_URL={REACT_APP_API_URL} yarn start 
 ##### Run test
 yarn test
