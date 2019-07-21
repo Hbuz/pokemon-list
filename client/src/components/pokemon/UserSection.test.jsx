@@ -67,15 +67,9 @@ describe("UserSection", () => {
   });
 
 
-
   describe("when `loggingOut` is undefined", () => {
     beforeEach(() => {
       props.loggingOut = undefined;
-    });
-
-    it("sets the rendered `Button`'s `onClick` prop to undefined", () => {
-      const logOutButton = shallow(<UserSection />).find(Button)
-      expect(logOutButton.props().onClick).not.toBeDefined();
     });
   });
 

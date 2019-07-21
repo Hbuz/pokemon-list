@@ -1,7 +1,8 @@
 import {
   USER_SIGNUP_SUCCESS,
   USER_SIGNUP_FAILED,
-  ADD_USER
+  REMOVE_ERRORS,
+  CLEAN_SIGNUP
 } from "../actions/auth";
 
 export default function(state = {}, { type, payload }) {
@@ -10,15 +11,17 @@ export default function(state = {}, { type, payload }) {
       return {
         success: true
       };
-    case ADD_USER:
-      return {
-        ...state,
-        success: true,
-        [payload.id]: payload
-      };
     case USER_SIGNUP_FAILED:
       return {
         error: payload
+      };
+    case CLEAN_SIGNUP:
+      return {
+        success: false
+      };
+    case REMOVE_ERRORS:
+      return {
+        error: null
       };
 
     default:

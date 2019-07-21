@@ -50,13 +50,11 @@ const PokemonContainer = withStyles(styles)(
 
     componentDidMount() {
       //Get all pokemons
-      request(`${baseUrl}`)
+      request(`${baseUrl}/pokemons`)
         .then(response => {
           this.setState({ pokemons: response.body.pokemons })
         })
         .then(() => {
-          //Request 
-          //UNCOMMNET TODO
           request(`${baseUrl}/pokemons/favorites/${this.props.currentUser.userId}`)
             .then(response => {
               this.setState({ favorites: response.body.favorites.map(elem => (elem.pokemonId)) })
@@ -90,7 +88,7 @@ const PokemonContainer = withStyles(styles)(
       const pokemonName = this.state.selected.name
       this.setState({ favorite: event.target.checked });
       if (event.target.checked) {
-        //Add element to favorites in the state
+        //Add element to favorites
         this.setState(prevState => ({
           favorites: [...prevState.favorites, prevState.selected.id]
         }))
@@ -102,7 +100,7 @@ const PokemonContainer = withStyles(styles)(
             console.log(`Pokemon ${pokemonName} added as favorite`)
           })
       } else {
-        //Remove element from favorites in the state
+        //Remove element from favorites
         this.setState({ favorites: this.state.favorites.filter(fav => fav !== this.state.selected.id )})
         
         request

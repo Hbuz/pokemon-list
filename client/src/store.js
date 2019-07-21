@@ -6,6 +6,6 @@ const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
 const enhancer = composeEnhancers(applyMiddleware(ReduxThunk));
 
-const store = createStore(reducer, enhancer); //reducers already combined
+const store = createStore(reducer, enhancer);
 
 export default store;

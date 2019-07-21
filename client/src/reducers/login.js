@@ -1,4 +1,4 @@
-import { USER_LOGIN_FAILED, REMOVE_ERROR } from "../actions/auth";
+import { USER_LOGIN_FAILED, REMOVE_ERRORS } from "../actions/auth";
 
 export default function(state = {}, { type, payload }) {
   switch (type) {
@@ -6,7 +6,7 @@ export default function(state = {}, { type, payload }) {
       return {
         error: payload
       };
-    case REMOVE_ERROR:
+    case REMOVE_ERRORS:
       return {
         error: null
       };

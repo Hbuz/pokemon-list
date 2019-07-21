@@ -8,7 +8,8 @@ const Pokemon = require(`./pokemon/model`);
 const cors = require("cors");
 
 const app = express();
-const port = process.env.PORT || 4001;
+//const port = process.env.PORT || 4001;
+const port = process.env.PORT;
 
 app.use(cors());
 
@@ -28,7 +29,7 @@ app
   
 
 const fetchPokemons = () => {
-  fetch(`https://pokeapi.co/api/v2/pokemon?limit=1`)
+  fetch(`https://pokeapi.co/api/v2/pokemon?limit=60`)
     .then(response => response.json())
     .then(function(data) {
       data.results.forEach(pokemon => {

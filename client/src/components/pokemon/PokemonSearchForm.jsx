@@ -1,5 +1,6 @@
 import * as React from 'react'
 import Grid from "@material-ui/core/Grid";
+import Button from "@material-ui/core/Button";
 
 export default function PokemonSearchForm(props) {
   return (
@@ -9,7 +10,7 @@ export default function PokemonSearchForm(props) {
             <input type="text" name="searchKey" placeholder="Search Pokemon..." onChange={props.handleChange} />
         </Grid>
         <Grid item>
-          <button type="submit">Search</button>
+          <Button variant="contained" color="primary" size="small" type="submit">Search</Button>
         </Grid>
       </Grid>
     </form>

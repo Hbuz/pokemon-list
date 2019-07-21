@@ -4,12 +4,12 @@ export const USER_LOGIN_SUCCESS = "USER_LOGIN_SUCCESS";
 export const USER_LOGIN_FAILED = "USER_LOGIN_FAILED";
 
 export const USER_SIGNUP_SUCCESS = "USER_SIGNUP_SUCCESS";
-export const ADD_USER = "ADD_USER";
 export const USER_SIGNUP_FAILED = "USER_SIGNUP_FAILED";
+export const CLEAN_SIGNUP = "CLEAN_SIGNUP";
 
 export const USER_LOGOUT = "USER_LOGOUT";
 
-export const REMOVE_ERROR = "REMOVE_ERROR";
+export const REMOVE_ERRORS = "REMOVE_ERROR";
 
 const baseUrl = process.env.REACT_APP_API_URL || "http://localhost:4001";
 
@@ -23,9 +23,9 @@ const userLoginFailed = error => ({
   payload: error || "Unknown error"
 });
 
-const userSignupSuccess = entity => ({
-  type: ADD_USER,
-  payload: entity
+const userSignupSuccess = user => ({
+  type: USER_SIGNUP_SUCCESS,
+  payload: user
 });
 
 const userSignupFailed = error => ({
@@ -33,13 +33,18 @@ const userSignupFailed = error => ({
   payload: error || "Unknown error"
 });
 
+export const clean = () => ({
+  type: CLEAN_SIGNUP,
+});
+
+
 export const logout = () => ({
   type: USER_LOGOUT
 });
 
 
-export const removePrevError = () => ({
-  type: REMOVE_ERROR
+export const removePrevErrors = () => ({
+  type: REMOVE_ERRORS
 })
 
 
@@ -49,7 +54,7 @@ export const login = (username, password) => dispatch =>
     .send({ username, password })
     .then(result => {
       dispatch(userLoginSuccess(result.body))
-      dispatch(removePrevError())
+      dispatch(removePrevErrors())
     })
     .catch(err => {
       if (err.status === 400) {
@@ -61,11 +66,11 @@ export const login = (username, password) => dispatch =>
 
 export const signup = (username, password) => dispatch =>
   request
-    .post(`${baseUrl}/users`)
+    .post(`${baseUrl}/signup`)
     .send({ username, password })
     .then(result => {
       dispatch(userSignupSuccess(result.body))
-      dispatch(removePrevError());
+      dispatch(removePrevErrors());
     })
     .catch(err => {
       if (err.status === 400) {

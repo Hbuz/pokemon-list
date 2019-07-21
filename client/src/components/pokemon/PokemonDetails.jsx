@@ -25,7 +25,7 @@ const useStyles = makeStyles(theme => ({
     maxWidth: '100%',
     maxHeight: '100%',
   },
-  points: {
+  properties: {
     maxWidth: 175,
   },
   checkbox: {
@@ -53,7 +53,7 @@ export default function PokemonDetails(props) {
           <Grid item className={classes.image}>
             <img className={classes.img} src={props.selected.image} alt={props.selected.image} />
           </Grid>
-          <Grid item container className={classes.points} spacing={1} direction="column">
+          <Grid item container className={classes.properties} spacing={1} direction="column">
             <Grid item container justify="space-between" alignItems="baseline">
               <Grid item>
                 <Typography variant="h6">
