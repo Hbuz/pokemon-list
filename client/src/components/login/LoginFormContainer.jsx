@@ -14,7 +14,6 @@ const styles = () => ({
   },
   container: {
     padding: 64,
-    //flexWrap: 'wrap'
   },
 
 })
@@ -23,7 +22,10 @@ const styles = () => ({
 const LoginFormContainer = withStyles(styles)(
   class extends Component {
 
-    state = { username: '', password: '' }
+    state = { 
+      username: '', 
+      password: '' 
+    }
 
     handleSubmit = (event) => {
       this.props.login(event.username, event.password)

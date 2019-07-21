@@ -8,7 +8,8 @@ const Pokemon = require(`./pokemon/model`);
 const cors = require("cors");
 
 const app = express();
-const port = process.env.PORT || 4001;
+//const port = process.env.PORT || 4001;
+const port = process.env.PORT;
 
 app.use(cors());
 
@@ -43,7 +44,8 @@ const fetchPokemons = () => {
               height: myJson.height,
               base_experience: myJson.base_experience,
               image: myJson.sprites.front_default
-            }).then(pokemon =>
+            })
+            .then(pokemon =>
               console.log(`Pokemon created = ${pokemon.name}`)
             );
           });
@@ -57,3 +59,6 @@ const fetchPokemons = () => {
 
 
 fetchPokemons();
+
+
+module.exports = app;

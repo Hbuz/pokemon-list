@@ -51,7 +51,7 @@ export default class SignupForm extends PureComponent {
               </Grid>
               <Grid item>
                 <Link to="/login">
-                  <Button type="button"> Cancel </Button>
+                  <Button> Cancel </Button>
                 </Link>
               </Grid>
             </Grid>

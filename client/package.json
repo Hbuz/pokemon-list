@@ -5,6 +5,7 @@
   "dependencies": {
     "@material-ui/core": "^4.2.0",
     "jspdf": "^1.5.3",
+    "material-ui": "^0.20.2",
     "react": "^16.8.6",
     "react-csv": "^1.1.1",
     "react-dom": "^16.8.6",
@@ -13,6 +14,7 @@
     "react-scripts": "3.0.1",
     "redux": "^4.0.4",
     "redux-thunk": "^2.3.0",
+    "sinon": "^7.3.2",
     "superagent": "^5.1.0"
   },
   "scripts": {
@@ -38,5 +40,11 @@
   },
   "main": "index.js",
   "author": "Hbuz <m.basilico10@gmail.com>",
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "canvas-prebuilt": "^2.0.0-alpha.14",
+    "enzyme": "^3.10.0",
+    "enzyme-adapter-react-16": "^1.14.0",
+    "jest-canvas-mock": "^2.1.0"
+  }
 }

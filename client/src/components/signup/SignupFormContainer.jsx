@@ -1,6 +1,6 @@
 import React, { PureComponent } from 'react'
 import { connect } from 'react-redux'
-import { signup } from '../../actions/auth'
+import { signup, clean } from '../../actions/auth'
 import SignupForm from './SignupForm'
 import { Redirect } from 'react-router-dom'
 import Grid from '@material-ui/core/Grid'
@@ -28,7 +28,7 @@ const SignupFormContainer = withStyles(styles)(
 
     render() {
       if (this.props.signup.success) return (
-        <Redirect to="/" />
+          <Redirect to="/">{this.props.clean()}</Redirect>
       )
 
       const { classes } = this.props
@@ -60,6 +60,6 @@ const mapStateToProps = function (state) {
   }
 }
 
-const mapDispatchToProps = { postSignup: signup }
+const mapDispatchToProps = { postSignup: signup, clean }
 
 export default connect(mapStateToProps, mapDispatchToProps)(SignupFormContainer)
