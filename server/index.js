@@ -10,6 +10,8 @@ const cors = require("cors");
 const app = express();
 const port = process.env.PORT || 4001;
 
+const limit = 100
+
 app.use(cors());
 
 app.use(
@@ -28,7 +30,7 @@ app
   
 
 const fetchPokemons = () => {
-  fetch(`https://pokeapi.co/api/v2/pokemon?limit=60`)
+  fetch(`https://pokeapi.co/api/v2/pokemon?limit=${limit}`)
     .then(response => response.json())
     .then(function(data) {
       data.results.forEach(pokemon => {
@@ -55,8 +57,7 @@ const fetchPokemons = () => {
     });
 };
 
-
-
+//Seed DB
 fetchPokemons();
 
 

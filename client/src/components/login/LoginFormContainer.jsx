@@ -15,16 +15,15 @@ const styles = () => ({
   container: {
     padding: 64,
   },
-
 })
 
 
 const LoginFormContainer = withStyles(styles)(
   class extends Component {
 
-    state = { 
-      username: '', 
-      password: '' 
+    state = {
+      username: '',
+      password: ''
     }
 
     handleSubmit = (event) => {
@@ -52,7 +51,7 @@ const LoginFormContainer = withStyles(styles)(
               <LoginForm handleSubmit={this.handleSubmit} />
               {this.props.error && <span style={{ color: 'red' }}>{this.props.error}</span>}
             </Grid>
-            
+
             <Grid item>
               <Link to="/signup">
                 <Button>SIGN UP</Button>
@@ -62,9 +61,7 @@ const LoginFormContainer = withStyles(styles)(
         </div>
       )
     }
-  }
-)
-
+  })
 
 const mapStateToProps = function (state) {
   return {
