@@ -6,7 +6,6 @@ import { makeStyles } from '@material-ui/core/styles';
 import { CSVLink } from "react-csv";
 
 
-
 const useStyles = makeStyles(theme => ({
   root: {
     flexGrow: 1,
@@ -92,7 +91,7 @@ export default function PokemonDetails(props) {
             </Grid>
 
             {props.currentUser &&
-              <Grid item container justify="space-between" alignItems="baseline">
+              <Grid item container justify="space-between" alignItems="stretch">
                 <Grid item>
                   <Typography gutterBottom variant="h6">
                     Favorite

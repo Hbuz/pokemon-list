@@ -10,7 +10,6 @@ export default function(state = {}, { type, payload }) {
       return {
         error: null
       };
-
     default:
       return state;
   }

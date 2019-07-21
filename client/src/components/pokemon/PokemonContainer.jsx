@@ -60,7 +60,6 @@ const PokemonContainer = withStyles(styles)(
               this.setState({ favorites: response.body.favorites.map(elem => (elem.pokemonId)) })
             })
         })
-
     }
 
     handleChange(event) {

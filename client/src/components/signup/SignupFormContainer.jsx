@@ -18,7 +18,6 @@ const styles = () => ({
 })
 
 
-
 const SignupFormContainer = withStyles(styles)(
   class extends PureComponent {
 

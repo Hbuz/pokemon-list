@@ -9,7 +9,7 @@ export const CLEAN_SIGNUP = "CLEAN_SIGNUP";
 
 export const USER_LOGOUT = "USER_LOGOUT";
 
-export const REMOVE_ERRORS = "REMOVE_ERROR";
+export const REMOVE_ERRORS = "REMOVE_ERRORS";
 
 const baseUrl = process.env.REACT_APP_API_URL || "http://localhost:4001";
 
