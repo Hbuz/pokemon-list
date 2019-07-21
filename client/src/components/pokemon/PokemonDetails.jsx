@@ -92,7 +92,7 @@ export default function PokemonDetails(props) {
             </Grid>
 
             {props.currentUser &&
-              <Grid item container justify="space-between" alignItems="baseline">
+              <Grid item container justify="space-between" alignItems="stretch">
                 <Grid item>
                   <Typography gutterBottom variant="h6">
                     Favorite

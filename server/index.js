@@ -8,8 +8,7 @@ const Pokemon = require(`./pokemon/model`);
 const cors = require("cors");
 
 const app = express();
-//const port = process.env.PORT || 4001;
-const port = process.env.PORT;
+const port = process.env.PORT || 4001;
 
 app.use(cors());
 
