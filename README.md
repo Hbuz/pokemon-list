@@ -25,7 +25,7 @@ git clone git@github.com:Hbuz/pokemon-list.git
 ##### Running apllication
 DATABASE_URL={DATABASE_URL} PORT={PORT} node . 
 ##### Run test
-npm run test
+DATABASE_URL={DATABASE_URL} PORT={PORT} npm run test
 
 
 #### Client folder
@@ -39,4 +39,4 @@ npm run test
 ##### Run application
 REACT_APP_API_URL={REACT_APP_API_URL} yarn start 
 ##### Run test
-yarn test
+REACT_APP_API_URL={REACT_APP_API_URL} yarn test
